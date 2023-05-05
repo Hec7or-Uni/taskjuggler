@@ -44,6 +44,7 @@ rate 145.2
 # to.
 account cost "Project Cost" {
   account manag "Management"
+  account mFront "Mobile Front-End"
   account wFront "Web Front-End"
   account back "Back-End"
 }

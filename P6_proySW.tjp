@@ -110,7 +110,7 @@ task WMGame "Web & Mobile Game" {
     depends WMGame.tback
     task tResearch "Research and Comparison of Alternatives" {
       effort 5d
-      allocate dev1
+      allocate Hector
     }
     task tupcloud "Cloud Deployment" {
       effort 2d

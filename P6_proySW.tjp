@@ -106,7 +106,7 @@ task WMGame "Web & Mobile Game" {
     # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
     purge chargeset
     chargeset back
-    responsible dev1
+    responsible Hector
     depends WMGame.tback
     task tResearch "Research and Comparison of Alternatives" {
       effort 5d
@@ -282,6 +282,11 @@ textreport frame "" {
     center '<[report id="overview"]>'
   }
 
+  textreport infoi "informe plan" {
+    formats html
+    center '<[report id="informe"]>'
+  }
+
   textreport "Status" {
     formats html
     center -8<-
@@ -328,6 +333,20 @@ taskreport overview "" {
   caption 'All effort values are in man days.'
 }
 
+taskreport informe "" {
+  scenarios plan
+  headline "Informe"
+  columns bsi { title 'WBS' },
+          name, start, end, effort, cost,
+          revenue, chart { ${TaskTip} }
+  # For this report we like to have the abbreviated weekday in front
+  # of the date. %a is the tag for this.
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource @all
+  balance cost rev
+  caption 'All effort values are in man days.'
+}
 
 # Macro to set the background color of a cell according to the alert
 # level of the task.
